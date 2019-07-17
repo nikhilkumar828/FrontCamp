@@ -2,14 +2,19 @@ import {
     postControl
 } from "./pageController.js";
 
+import {
+    constants
+} from "./data.js";
+
 export class viewPage {
     renderPage = () => {
+        let objConst = new constants();
         //Adding Header Panel    
-        this.addHeader();
+        this.addHeader(objConst);
         //Adding body Part
-        this.addMain();
+        this.addMain(objConst);
         //Adding Footer Panel
-        this.addFooter();
+        this.addFooter(objConst);
         // //Setting data to the elements
         // setData(data);
         let obj = new postControl();
@@ -17,26 +22,27 @@ export class viewPage {
 
     }
     //Header
-    addHeader = () => {
-        this.createHTMLElement(headerElements);
+    addHeader = (obj) => {
+        
+        this.createHTMLElement(obj.headerElements);
     }
 
-    addFooter = () => {
-        this.createHTMLElement(footerElements);
+    addFooter = (obj) => {
+        this.createHTMLElement(obj.footerElements);
     }
 
 
 
     //Body
-    addMain = () => {
-        this.createHTMLElement(mainElements);
+    addMain = (obj) => {
+        this.createHTMLElement(obj.mainElements);
 
         //creation of side panel for adding select category and subscription
-        this.addSidePanel();
+        this.addSidePanel(obj);
     }
 
     //sidePanel 
-    addSidePanel = () => {
+    addSidePanel = (obj) => {
 
         //Attributes for input tag
         let thisElement = document.getElementById("emailIdTextBox");
@@ -49,12 +55,12 @@ export class viewPage {
         thisElement.type = "submit";
 
         //Creating and appending option tag for displaying categories
-        for (var allCategories = 0; allCategories < categories.length; allCategories++) {
+        for (var allCategories = 0; allCategories < obj.categories.length; allCategories++) {
             // Create an Option        
             var opt = document.createElement("option");
             // Add an Option object to List Box
             document.getElementById("categoryLstBox").options.add(opt);
-            opt.text = categories[allCategories];
+            opt.text = obj.categories[allCategories].toUpperCase();
             opt.value = allCategories;
         }
     }
@@ -186,7 +192,7 @@ function continueReading ()  {
     document.getElementById("popUp").style.display = "block";
     //getting related text to display
     var btnId = this.id;
-    var postId = btnId.substr(btnId.length - 1);
+    var postId = btnId.substr(17);
     var title = document.getElementById("postTitleId" + postId).textContent;
     var titleDesc = document.getElementById("postTitleDescId" + postId).textContent;
     var desc = document.getElementById("postDescId" + postId).textContent;

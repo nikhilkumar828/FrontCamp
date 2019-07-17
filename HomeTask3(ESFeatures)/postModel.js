@@ -15,7 +15,6 @@ export class dataFetch {
             .then(response => response.json())
             .then(data => {
                 let obj = new postControl();
-                //console.log(data.articles);
                 obj.setPostData(data.source, data.articles);
 
             })

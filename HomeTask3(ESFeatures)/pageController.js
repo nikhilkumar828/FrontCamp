@@ -6,6 +6,10 @@ import {
     viewPage
 } from "./pageView.js";
 
+import {
+    constants
+} from "./data.js";
+
 export class postControl {
     category = "cnn";
     
@@ -40,7 +44,7 @@ export class postControl {
     }
 
     sourceSelectionEvent = (sourceOfPost, data) => {
-        
+        let objConst = new constants();   
     //Getting value selected by user
     let listBox = document.getElementById("categoryLstBox");
     let selectedValue = listBox.value;
@@ -49,7 +53,7 @@ export class postControl {
     while (myNode.firstChild) {
         myNode.removeChild(myNode.firstChild);
     }
-    let selectedcategory = categories[selectedValue];
+    let selectedcategory = objConst.categories[selectedValue];
     let obj = new dataFetch(selectedcategory);
     obj.fetchData();
     

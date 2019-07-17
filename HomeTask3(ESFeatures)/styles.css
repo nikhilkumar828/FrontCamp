@@ -82,6 +82,7 @@
     background: black;
     height: 30px;
     border:0;
+    z-index: 20;
 }
 
 /* General */
@@ -163,4 +164,9 @@
     color: #000;
     text-decoration: none;
     cursor: pointer;
+  }
+
+  .subscribeFlx{
+      margin: 2% 0 0 56%;
+      width: 20%;
   }
