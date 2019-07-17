@@ -1,8 +1,6 @@
 // import {
 //     postControl
 // } from "./pageController.js";
-
-
 //Data for content
 var data = [
     {
