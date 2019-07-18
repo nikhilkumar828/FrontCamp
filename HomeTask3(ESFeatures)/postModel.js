@@ -3,7 +3,7 @@ import {
 } from "./pageController.js";
 
 //To fetch the required data
-export class dataFetch {
+export  class dataFetch {
 
     constructor(source) {
         this.source = source;
