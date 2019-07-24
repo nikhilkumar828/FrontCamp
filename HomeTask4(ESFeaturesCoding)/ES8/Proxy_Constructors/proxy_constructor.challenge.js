@@ -5,7 +5,7 @@
 //If it is employees, make sure if it is an Array, a string or null.
 //If anything else comes, respond with an appropriate message
 //If not employees, let it pass
-
+//New Master
 let manager = {
     office: `Dubai`,
     dept: `sales`,
