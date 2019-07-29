@@ -12,7 +12,6 @@ let manager = {
     employees: 0
 }
 
-
 let handler = {
     set: (target, propName, newVal) => {
         if(propName==="employees"){
