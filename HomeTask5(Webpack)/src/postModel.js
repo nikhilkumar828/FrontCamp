@@ -1,6 +1,9 @@
 import {
     postControl
 } from "./pageController.js";
+require('es6-promise').polyfill();
+require('isomorphic-fetch');
+
 
 //To fetch the required data
 export  class dataFetch {

@@ -10,7 +10,7 @@ import {
     viewPage
 } from "./pageView.js";
 
-import '../dist/styles.css';
+import '../styles.css';
 
 export class postControl {
     category = "cnn";
@@ -104,7 +104,7 @@ export class events {
 
     //Continue Reading event
  continueReading = (obj) => {
-    self = obj;
+    let self = obj;
     //displaying popup
     document.getElementById("popUp").style.display = "block";
     //getting related text to display

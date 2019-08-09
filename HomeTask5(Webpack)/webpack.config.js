@@ -1,7 +1,8 @@
 var path = require('path');
 var UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 require('es6-promise').polyfill();
-require('isomorphic-fetch');
+
 
 module.exports = {
     entry: ["@babel/polyfill","./src/pageController"],
@@ -38,5 +39,10 @@ module.exports = {
             }
           })
         ]
-      }
+      },
+      plugins: [
+        new HtmlWebpackPlugin({
+          template: './index.html'
+        })
+      ]
   }
