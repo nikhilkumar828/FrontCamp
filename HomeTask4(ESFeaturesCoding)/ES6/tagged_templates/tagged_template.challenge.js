@@ -18,6 +18,7 @@ let order = `ORDER BY asc`
 // Spread syntax is a more common and easy here if you are comfortable with it
 function checkQuery(words, ...values) {
     let finalQuery;
+    console.log(values);
     let state = values[0].split(" ")[0].toUpperCase();
     if (state ==="SELECT" || state ==="UPDATE" &&
         !(state ==="UPDATE" && values[1] === "PASSWORDS")) {
