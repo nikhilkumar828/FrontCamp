@@ -1,0 +1,39 @@
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+    <label>
+        ID:
+        <input type="text" formControlName="id">
+      </label>
+  <label>
+    Heading:
+    <input type="text" formControlName="postTitle">
+  </label>
+<!-- id
+  <label>
+    Short Desc:
+    <input type="text" formControlName="shortDesc">
+  </label> -->
+  <label>
+    Date:
+    <input type="text" formControlName="postDate">
+  </label>
+
+  <label>
+    Category:
+    <input type="text" formControlName="postCategory">
+  </label>
+  <label>
+    Source URL:
+    <input type="text" formControlName="imageSrc">
+  </label>
+
+  <label>
+    Content:
+    <input type="text" formControlName="postDesc">
+  </label>
+
+  <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+
+  <button (click)="onCancel()" >Cancel</button>
+
+</form>

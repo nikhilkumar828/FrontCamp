@@ -1,0 +1,17 @@
+<div class="allPosts flxVertical">
+<a *ngFor="let post of allPosts">
+    <div class="flxVertical">
+        <div class="post flxMain">
+            <div><img src={{post.imageSrc}} alt="Post Image" class="image"></div>
+            <div class="postBody">
+                <h2 class="postTitle marginForPost">{{post.postTitle}}</h2>
+                <h6 class="postTitleDesc marginForPost"><span class="fontLight">Posted on </span>{{post.postDate}} <span class="fontLight">// Category :</span>{{post.postCategory}}</h6>
+                <p class="postDesc">{{post.postDesc.substring(0,200)+'...'}}</p>
+                <button class="postButton"  routerLink="/postDetails/{{post.id}}">Continue Reading</button>
+            </div>
+        </div>
+        <hr class="divideLine">
+    </div>
+</a>
+</div>
+

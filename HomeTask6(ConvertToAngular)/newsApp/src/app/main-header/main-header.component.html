@@ -1,0 +1,18 @@
+<div class="mainHeader">
+    <div>
+        <h2 class="mainHeaderTitle">{{selectedSource}}</h2>
+    </div>
+    <hr>
+    <div class="flxRow">
+        <div>
+                <select (change)="onSelectSource($event.target.value)" [(ngModel)]="selectedSource" name="sourceLstBox">
+                        <option *ngFor="let source of categories" value= {{source}} >{{source}}</option>
+                </select>
+                You selected : {{selectedSource}}
+        </div>
+        <div class="btnAddArticle">
+            <button routerLink='/NewArticle'>Add Article</button>
+        </div>
+    </div>
+    <hr>
+</div>
