@@ -1,12 +1,12 @@
-<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="form-group">
 
     <label>
         ID:
-        <input type="text" formControlName="id">
+        <input type="text" formControlName="id" class="form-control">
       </label>
   <label>
     Heading:
-    <input type="text" formControlName="postTitle">
+    <input type="text" formControlName="postTitle" class="form-control">
   </label>
 <!-- id
   <label>
@@ -15,25 +15,26 @@
   </label> -->
   <label>
     Date:
-    <input type="text" formControlName="postDate">
+    <input type="text" formControlName="postDate" class="form-control">
   </label>
 
   <label>
     Category:
-    <input type="text" formControlName="postCategory">
+    <input type="text" formControlName="postCategory" class="form-control">
   </label>
   <label>
     Source URL:
-    <input type="text" formControlName="imageSrc">
+    <input type="text" formControlName="imageSrc" class="form-control">
   </label>
 
   <label>
     Content:
-    <input type="text" formControlName="postDesc">
   </label>
+    <textarea type="text" formControlName="postDesc" class="form-control"></textarea>
+  
 
-  <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+  <button type="submit" [disabled]="!profileForm.valid" class="btn">Submit</button>
 
-  <button (click)="onCancel()" >Cancel</button>
+  <button (click)="onCancel()" class="btn">Cancel</button>
 
 </form>

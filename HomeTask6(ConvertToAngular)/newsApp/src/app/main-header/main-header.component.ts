@@ -18,6 +18,7 @@ export class MainHeaderComponent implements OnInit {
   }
 
   onSelectSource(source: string): void {
+    this.selectedSourceTitle = source;
     this.router.navigate(['body', source]);
   }
 
