@@ -54,3 +54,7 @@
 .postDesc{
     width : 90%;
 }
+
+.minHeight{
+    min-height: 385px;
+}

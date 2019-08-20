@@ -12,12 +12,6 @@ export class AppComponent {
   // tslint:disable-next-line: no-inferrable-types
   showHead: boolean = true;
   constructor(private router: Router) {
-    this.router.events.subscribe((e) => {
-          if (this.router.url === '/NewArticle') {
-            this.showHead = false;
-          } else {
-            this.showHead = true;
-          }
-      });
+
     }
   }

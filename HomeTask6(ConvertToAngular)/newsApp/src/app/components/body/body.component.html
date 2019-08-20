@@ -1,4 +1,6 @@
-<div class="allPosts flxVertical col">
+<app-main-header (selectedSource)="setPostsData($event)" ></app-main-header>
+
+<div class="allPosts flxVertical col minHeight">
 <a *ngFor="let post of allPosts">
     <div class="row">
         <div class="post flxMain">

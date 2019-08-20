@@ -28,4 +28,6 @@ label {
     color: #ccc;
     cursor: auto;
   }
-  
+  .minHeight{
+    min-height: 505px;
+}

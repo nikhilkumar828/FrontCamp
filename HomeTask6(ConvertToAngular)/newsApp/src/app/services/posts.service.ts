@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
-import { Posts } from './posts';
-import { POSTSDATA } from './posts-data';
+import { Posts } from '../classes/posts';
+import { POSTSDATA } from '../classes/posts-data';
 
 @Injectable()
 export class PostsService {

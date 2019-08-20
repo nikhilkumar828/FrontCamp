@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { Router } from '@angular/router';
 
@@ -11,6 +11,7 @@ export class MainHeaderComponent implements OnInit {
   categories: string[] =  ['all', 'cnn', 'bcc', 'cnbc', 'fortune', 'google-news', 'metro', 'mirror', 'talksport', 'time', 'the-hindu'];
   selectedSourceTitle = 'all';
 
+  @Output() selectedSource = new EventEmitter<string>();
   constructor(private router: Router) { }
 
   ngOnInit() {
@@ -19,6 +20,7 @@ export class MainHeaderComponent implements OnInit {
 
   onSelectSource(source: string): void {
     this.selectedSourceTitle = source;
+    this.selectedSource.emit(source);
     this.router.navigate(['body', source]);
   }
 

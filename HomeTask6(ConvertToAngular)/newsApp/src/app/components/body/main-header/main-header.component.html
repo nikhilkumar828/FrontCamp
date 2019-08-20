@@ -1,12 +1,12 @@
 <div class="mainHeader">
     <div>
-        <h2 class="mainHeaderTitle">{{selectedSourceTitle}}</h2>
+        <h2 class="mainHeaderTitle">{{selectedSourceTitle.toUpperCase()}}</h2>
     </div>
     <hr>
     <div class="flxRow container">
         <div class="l-1">
-                <select (change)="onSelectSource($event.target.value)" [(ngModel)]="selectedSource" name="sourceLstBox">
-                        <option *ngFor="let source of categories" value= {{source}} >{{source}}</option>
+                <select (change)="onSelectSource($event.target.value)" [(ngModel)]="selectedSourceTitle" name="sourceLstBox">
+                        <option *ngFor="let source of categories" [value]= 'source' >{{source}}</option>
                 </select>
                 You selected : {{selectedSourceTitle}}
         </div>

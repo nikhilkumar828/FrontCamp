@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
-import { Posts } from '../posts';
-import { PostsService } from '../posts.service';
+import { Posts } from '../../classes/posts';
+import { PostsService } from '../../services/posts.service';
 import { Router } from '@angular/router';
 
 @Component({
