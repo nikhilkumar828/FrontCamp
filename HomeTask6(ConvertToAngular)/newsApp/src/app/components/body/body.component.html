@@ -1,15 +1,16 @@
-<app-main-header (selectedSource)="setPostsData($event)" ></app-main-header>
+<app-main-header (selectedSource)="changeOfSource($event)" ></app-main-header>
 
 <div class="allPosts flxVertical col minHeight">
-<a *ngFor="let post of allPosts">
+<a *ngFor="let post of allPosts; let i = index">
     <div class="row">
         <div class="post flxMain">
-            <div><img src={{post.imageSrc}} alt="Post Image" class="image"></div>
+            <div><img src={{post.urlToImage}} alt="Post Image" class="image"></div>
             <div class="postBody">
-                <h2 class="postTitle marginForPost">{{post.postTitle}}</h2>
-                <h6 class="postTitleDesc marginForPost"><span class="fontLight">Posted on </span>{{post.postDate}} <span class="fontLight">// Category :</span>{{post.postCategory}}</h6>
-                <p class="postDesc">{{post.postDesc.substring(0,200)+'...'}}</p>
-                <button class="postButton"  routerLink="/postDetails/{{post.id}}">Continue Reading</button>
+                <h2 class="postTitle marginForPost">{{post.title | uppercase}}</h2>
+                <h6 class="postTitleDesc marginForPost"><span class="fontLight">Posted on </span>{{post.publishedAt | date: 'fullDate'}} <span class="fontLight">// Category :</span>{{post.author}}</h6>
+                <p class="postDesc">{{post.description}}</p>
+                <!-- .postDesc.substring(0,200)+'...' -->
+                <button class="postButton"  routerLink="/postDetails/{{i}}">Continue Reading</button>
             </div>
         </div>
         <hr class="divideLine">

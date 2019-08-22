@@ -8,8 +8,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./main-header.component.css']
 })
 export class MainHeaderComponent implements OnInit {
-  categories: string[] =  ['all', 'cnn', 'bcc', 'cnbc', 'fortune', 'google-news', 'metro', 'mirror', 'talksport', 'time', 'the-hindu'];
-  selectedSourceTitle = 'all';
+  categories: string[] =  ['cnn', 'bbc-news', 'cnbc', 'fortune', 'google-news', 'metro', 'mirror', 'talksport', 'time', 'the-hindu'];
+  selectedSourceTitle = 'cnn';
 
   @Output() selectedSource = new EventEmitter<string>();
   constructor(private router: Router) { }

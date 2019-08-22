@@ -3,13 +3,15 @@ import { Routes, RouterModule } from '@angular/router';
 import { NewArticleComponent } from './components/new-article/new-article.component';
 import { BodyComponent } from './components/body/body.component';
 import { PostDetailsComponent } from './components/post-details/post-details.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/body/all', pathMatch: 'full' },
+  { path: '', redirectTo: '/body/cnn', pathMatch: 'full' },
   { path: 'body/:src', component: BodyComponent },
   { path: 'NewArticle', component: NewArticleComponent },
   { path: 'postDetails/:id', component: PostDetailsComponent },
+  { path: 'login', component: LoginComponent },
 ];
 
 @NgModule({

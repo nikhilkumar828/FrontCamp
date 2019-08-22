@@ -14,6 +14,9 @@ import { NewArticleComponent } from './components/new-article/new-article.compon
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { PostDetailsComponent } from './components/post-details/post-details.component';
+import { LoginComponent } from './components/login/login.component';
+
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,13 +26,15 @@ import { PostDetailsComponent } from './components/post-details/post-details.com
     BodyComponent,
     MainHeaderComponent,
     NewArticleComponent,
-    PostDetailsComponent
+    PostDetailsComponent,
+    LoginComponent
   ],
   imports: [
     FormsModule,
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [PostsService],
   bootstrap: [AppComponent]

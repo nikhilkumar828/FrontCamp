@@ -1,8 +1,9 @@
 export class Posts {
-    id: string;
-    imageSrc: string;
-    postTitle: string;
-    postDate: string;
-    postCategory: string;
-    postDesc: string;
+    // id: string;
+    // imageSrc: string;
+    // postTitle: string;
+    // postDate: string;
+    // postCategory: string;
+    // postDesc: string;
+    articles: Array<object>;
 }

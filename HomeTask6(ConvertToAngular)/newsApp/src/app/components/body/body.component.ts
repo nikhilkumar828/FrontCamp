@@ -4,6 +4,7 @@ import { Posts } from '../../classes/posts';
 import { PostsService } from '../../services/posts.service';
 
 import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -13,23 +14,31 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class BodyComponent implements OnInit {
 
-  allPosts: Posts[] = [];
+  // tslint:disable-next-line: ban-types
+  allPosts: object;
   selectedSource: string;
+  subscription: Subscription;
 
   constructor(private route: ActivatedRoute, private postsService: PostsService) { }
 
   ngOnInit() {
-      // this.route.params.subscribe(routeParams => {
-      this.setPostsData('all');
-    // });
+        this.setPostsData('cnn');
   }
 
+
+
   setPostsData(source: string): void {
-    if ( source === 'all') {
+    this.postsService.fetchCall(source).subscribe((data) => {
+      console.log(data);
+      // tslint:disable-next-line: no-string-literal
+      this.postsService.setPostData(data['articles']);
+      // tslint:disable-next-line: no-string-literal
       this.allPosts = this.postsService.getPosts();
-    } else {
-       this.allPosts = this.postsService.getPostsSourceData(source);
-    }
+    });
+  }
+
+  changeOfSource(source: string) {
+    this.setPostsData(source);
   }
 
 }

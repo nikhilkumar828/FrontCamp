@@ -14,12 +14,11 @@ export class NewArticleComponent implements OnInit {
 
 
   profileForm = new FormGroup({
-    id: new FormControl('', Validators.required),
-    postTitle: new FormControl('', Validators.required),
-    postDate: new FormControl('', Validators.required),
-    postCategory: new FormControl('', Validators.required),
-    imageSrc: new FormControl('', Validators.required),
-    postDesc: new FormControl('', [Validators.required , Validators.minLength(100)]),
+    title: new FormControl('', Validators.required),
+    publishedAt: new FormControl('', Validators.required),
+    author: new FormControl('', Validators.required),
+    urlToImage: new FormControl('', Validators.required),
+    description: new FormControl('', [Validators.required , Validators.minLength(100)]),
   });
 
   constructor(private router: Router, private postsService: PostsService) { }
@@ -30,11 +29,11 @@ export class NewArticleComponent implements OnInit {
   onSubmit() {
     console.warn(this.profileForm.value);
     this.postsService.insertPostData(this.profileForm.value);
-    this.router.navigate(['body', 'all']);
+    this.router.navigate(['body', 'cnn']);
   }
 
   onCancel() {
-    this.router.navigate(['body', 'all']);
+    this.router.navigate(['body', 'cnn']);
   }
 
 }
