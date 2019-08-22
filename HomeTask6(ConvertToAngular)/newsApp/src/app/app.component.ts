@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { PostsService } from './services/posts.service';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,7 @@ export class AppComponent {
   postData: any;
   // tslint:disable-next-line: no-inferrable-types
   showHead: boolean = true;
-  constructor(private router: Router) {
-
+  constructor(private router: Router ,  private postsService: PostsService ) {
+      this.postsService.fetchCall('cnn');
     }
   }

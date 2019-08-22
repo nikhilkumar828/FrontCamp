@@ -5,6 +5,7 @@ import { Posts } from '../classes/posts';
 import { Subject, Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
+import { MainService } from '../components/main/main.service';
 
 
 @Injectable()
@@ -14,7 +15,7 @@ export class PostsService {
   private subject: Subject<any> = new Subject<string>();
   // public postData: Subject<any> = new Subject<object>();
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private mainService: MainService) { }
 
   setUserName(name: string): void {
     // this.userName = name;
@@ -27,27 +28,38 @@ export class PostsService {
 
   fetchCall(source: string) {
     // tslint:disable-next-line: max-line-length
-    return this.http.get(`https://newsapi.org/v1/articles?source=${source}&apiKey=b75366c0a439417d8c44c1b288139ecb`);
+    let i = 0;
+    return this.http.get<Posts[]>(`https://newsapi.org/v1/articles?source=${source}&apiKey=b75366c0a439417d8c44c1b288139ecb`)
+    .pipe(
+      map(data => {
+        // tslint:disable-next-line: no-string-literal no-shadowed-variable
+        return data['articles'].map(data => {
+          return {
+            ...data,
+            id : i++
+          };
+        });
+      })
+    )
+    .subscribe(postData => {
+      // console.log(postData);
+      this.mainService.setPosts(postData);
+    });
   }
 
-  // tslint:disable-next-line: ban-types
-  setPostData(posts: Object) {
-    this.posts = posts;
-  }
+  // // tslint:disable-next-line: ban-types
+  // setPostData(posts: Object) {
+  //   this.posts = posts;
+  // }
 
-  getPosts() {
-    return this.posts;
-  }
+  // getPosts() {
+  //   return this.posts;
+  // }
 
-  insertPostData(post: any): void {
-    this.posts.push(post);
-    console.log(this.posts);
-  }
+  // insertPostData(post: any): void {
+  //   this.posts.push(post);
+  //   console.log(this.posts);
+  // }
 
-  getPostByID(id: string): Posts {
-    console.log('here');
-    console.log(this.posts);
-    return this.posts[id];
-  }
 
 }

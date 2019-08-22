@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { Posts } from '../../classes/posts';
 import { PostsService } from '../../services/posts.service';
+import { MainService } from '../main/main.service';
 
 @Component({
   selector: 'app-post-details',
@@ -11,7 +12,7 @@ import { PostsService } from '../../services/posts.service';
 })
 export class PostDetailsComponent implements OnInit {
   data: Posts ;
-  constructor(private route: ActivatedRoute, private postsService: PostsService) { }
+  constructor(private route: ActivatedRoute, private mainService: MainService) { }
 
   ngOnInit() {
     this.route.params.subscribe(routeParams => {
@@ -21,7 +22,7 @@ export class PostDetailsComponent implements OnInit {
   }
 
   setData(id: string) {
-   this.data = this.postsService.getPostByID(id);
+   this.data = this.mainService.getPostByID(id);
   }
 
 }

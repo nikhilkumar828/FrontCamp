@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
-import { Posts } from '../../classes/posts';
-import { PostsService } from '../../services/posts.service';
+import { Posts } from '../../../classes/posts';
+import { PostsService } from '../../../services/posts.service';
 import { Router } from '@angular/router';
+import { MainService } from '../main.service';
 
 @Component({
   selector: 'app-new-article',
@@ -21,14 +22,14 @@ export class NewArticleComponent implements OnInit {
     description: new FormControl('', [Validators.required , Validators.minLength(100)]),
   });
 
-  constructor(private router: Router, private postsService: PostsService) { }
+  constructor(private router: Router, private mainService: MainService) { }
 
   ngOnInit() {
   }
 
   onSubmit() {
     console.warn(this.profileForm.value);
-    this.postsService.insertPostData(this.profileForm.value);
+    this.mainService.insertPostData(this.profileForm.value);
     this.router.navigate(['body', 'cnn']);
   }
 

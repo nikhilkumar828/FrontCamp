@@ -1,10 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { Posts } from '../../classes/posts';
-import { PostsService } from '../../services/posts.service';
+import { Posts } from '../../../classes/posts';
+import { PostsService } from '../../../services/posts.service';
 
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { MainService } from '../main.service';
 
 
 @Component({
@@ -19,22 +20,23 @@ export class BodyComponent implements OnInit {
   selectedSource: string;
   subscription: Subscription;
 
-  constructor(private route: ActivatedRoute, private postsService: PostsService) { }
+  constructor(private route: ActivatedRoute, private postsService: PostsService, private mainService: MainService ) { }
 
   ngOnInit() {
-        this.setPostsData('cnn');
+    this.subscription = this.mainService.postsChanged
+      .subscribe(
+        (posts: Posts[]) => {
+          this.allPosts = posts;
+        }
+      );
+    this.allPosts = this.mainService.getPosts();
+    // this.setPostsData('cnn');
   }
 
 
 
   setPostsData(source: string): void {
-    this.postsService.fetchCall(source).subscribe((data) => {
-      console.log(data);
-      // tslint:disable-next-line: no-string-literal
-      this.postsService.setPostData(data['articles']);
-      // tslint:disable-next-line: no-string-literal
-      this.allPosts = this.postsService.getPosts();
-    });
+    this.postsService.fetchCall(source);
   }
 
   changeOfSource(source: string) {
