@@ -1,4 +1,16 @@
 Angular application :
+
+
+
+To run :
+
+npm install
+
+ng serve - for local server
+
+ng build --prod - for production build
+
+
 used -  1) http.get
         2) subject
         3) observable
@@ -13,6 +25,7 @@ used -  1) http.get
         12) Hashing 
         13) Directives
         14) ngModel & string interpolation
+        
         
                 
 
