@@ -28,7 +28,7 @@ export class BodyComponent implements OnInit {
           this.allPosts = posts;
         }
       );
-    // this.allPosts = this.mainService.getPosts();
+    this.allPosts = this.mainService.getPosts();
     // this.setPostsData('cnn');
   }
 
