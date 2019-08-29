@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import {Md5} from 'ts-md5/dist/md5';
 import { PostsService } from 'src/app/services/posts.service';
 import { MainService } from '../../../services/main.service';
+import { AuthService } from 'src/app/services/auth/auth.service.service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,8 @@ export class LoginComponent implements OnInit {
   // });
   model: any = {};
 
-  constructor(private router: Router, private postsService: PostsService , private mainService: MainService ) { }
+  constructor(private router: Router, private postsService: PostsService ,
+              private mainService: MainService , private  authService: AuthService) { }
 
   ngOnInit() {
   }
@@ -26,19 +28,21 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     console.log(this.model);
     const userName = this.model.userName;
-    const password = Md5.hashStr(this.model.password);
+    // const password = Md5.hashStr(this.model.password);
+    const password = this.model.password;
     this.authenticate(userName, password);
-    this.router.navigate(['body', 'cnn']);
+    // this.router.navigate(['body', 'cnn']);
   }
 
-  authenticate(userName: string, password: string | Int32Array) {
-    if ( userName === 'admin') {
+  authenticate(userName: string, password: string ) {
+    if ( userName === 'admin@gmail.com') {
         this.mainService.setLoginInfo(true);
     } else {
       this.mainService.setLoginInfo(false);
     }
-    localStorage.setItem('userName', userName);
-    this.postsService.setUserName(userName);
+    console.log('calling....');
+    this.authService.login(userName, password);
+    // localStorage.setItem('userName', userName);
   }
 
   onCancel() {

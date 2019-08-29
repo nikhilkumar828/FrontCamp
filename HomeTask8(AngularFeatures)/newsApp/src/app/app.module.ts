@@ -23,6 +23,23 @@ import { AdminModule } from './components/admin/admin.module';
 import { AlertComponent } from './components/shared/alert/alert.component';
 import { PlaceholderDirective } from './components/shared/placeholder/placeholder.directive';
 
+
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+
+
+  // Your web app's Firebase configuration
+const firebaseConfig = {
+    apiKey: 'AIzaSyAm6AbwbP0D_KBIw1eXSBhgiLo1TG85Nls',
+    authDomain: 'newsfeed-21cdd.firebaseapp.com',
+    databaseURL: 'https://newsfeed-21cdd.firebaseio.com',
+    projectId: 'newsfeed-21cdd',
+    storageBucket: '',
+    messagingSenderId: '650107796074',
+    appId: '1:650107796074:web:08eaa482ded58b84'
+  };
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +56,9 @@ import { PlaceholderDirective } from './components/shared/placeholder/placeholde
     ReactiveFormsModule,
     HttpClientModule,
     UserModule,
-    AdminModule
+    AdminModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireAuthModule
   ],
   providers: [PostsService],
   bootstrap: [AppComponent],

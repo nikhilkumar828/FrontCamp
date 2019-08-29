@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PostsService } from 'src/app/services/posts.service';
 import { Subscription } from 'rxjs';
+import { AuthService } from 'src/app/services/auth/auth.service.service';
 
 @Component({
   selector: 'app-header',
@@ -12,7 +13,7 @@ export class HeaderComponent implements OnInit {
 
   subscription: Subscription;
   userName: string ;
-  constructor(private router: Router, private postsService: PostsService) { }
+  constructor(private router: Router, private postsService: PostsService ,  private  authService: AuthService) { }
 
   ngOnInit() {
     this.subscription = this.postsService.getUserName().subscribe(name => {
@@ -30,7 +31,8 @@ export class HeaderComponent implements OnInit {
 
   logout(): void {
     this.userName = '';
-    localStorage.setItem('userName', '');
-    this.router.navigate(['login']);
+    // localStorage.setItem('userName', '');
+    this.authService.logout();
+    // this.router.navigate(['login']);
   }
 }

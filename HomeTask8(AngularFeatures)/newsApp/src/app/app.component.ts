@@ -9,10 +9,5 @@ import { PostsService } from './services/posts.service';
 })
 export class AppComponent {
   title = 'newsApp';
-  postData: any;
-  // tslint:disable-next-line: no-inferrable-types
-  showHead: boolean = true;
-  constructor(private router: Router ,  private postsService: PostsService ) {
-      this.postsService.fetchCall('cnn');
-    }
+  constructor( ) { }
   }

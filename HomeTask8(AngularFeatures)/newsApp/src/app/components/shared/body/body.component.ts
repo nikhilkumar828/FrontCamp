@@ -22,6 +22,7 @@ export class BodyComponent implements OnInit {
   constructor(private postsService: PostsService, private mainService: MainService ) { }
 
   ngOnInit() {
+    this.postsService.fetchCall('cnn');
     this.subscription = this.mainService.postsChanged
       .subscribe(
         (posts: Posts[]) => {
