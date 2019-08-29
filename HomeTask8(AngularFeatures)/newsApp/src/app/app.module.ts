@@ -20,6 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AdminRoutingModule } from './components/admin/admin-routing.module';
 import { UserModule } from './components/user/user.module';
 import { AdminModule } from './components/admin/admin.module';
+import { AlertComponent } from './components/shared/alert/alert.component';
+import { PlaceholderDirective } from './components/shared/placeholder/placeholder.directive';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,9 @@ import { AdminModule } from './components/admin/admin.module';
     AdminModule
   ],
   providers: [PostsService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    AlertComponent
+  ]
 })
 export class AppModule { }
