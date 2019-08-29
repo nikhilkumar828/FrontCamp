@@ -3,7 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import {Md5} from 'ts-md5/dist/md5';
 import { PostsService } from 'src/app/services/posts.service';
-import { MainService } from '../main/main.service';
+import { MainService } from '../../../services/main.service';
 
 @Component({
   selector: 'app-login',

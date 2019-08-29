@@ -11,9 +11,9 @@
                 <!-- You selected : {{selectedSourceTitle}} -->
         </div>
         <div class="btnAddArticle">
-            <button class="btn btn-primary" routerLink='/NewArticle'>Add Article</button>
+            <button *ngIf="adminFlag == true" class="btn btn-primary" routerLink='/NewArticle'>Add Article</button>
         </div>
-        <button  *ngIf="adminFlag == true" class="btn btn-primary">Admin Menu</button>
+        <!-- <button  *ngIf="adminFlag == true" class="btn btn-primary">Admin Menu</button> -->
         <!-- <p *ngIf="adminFlag">Show this only if "show" is true</p> -->
     </div>
     <hr>

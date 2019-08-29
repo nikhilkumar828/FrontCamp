@@ -31,6 +31,6 @@ export class HeaderComponent implements OnInit {
   logout(): void {
     this.userName = '';
     localStorage.setItem('userName', '');
-    this.router.navigate(['body', 'all']);
+    this.router.navigate(['login']);
   }
 }

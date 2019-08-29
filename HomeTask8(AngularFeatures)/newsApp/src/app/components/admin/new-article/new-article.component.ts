@@ -4,7 +4,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Posts } from '../../../classes/posts';
 import { PostsService } from '../../../services/posts.service';
 import { Router } from '@angular/router';
-import { MainService } from '../main.service';
+import { MainService } from '../../../services/main.service';
 
 @Component({
   selector: 'app-new-article',

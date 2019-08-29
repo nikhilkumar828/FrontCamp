@@ -5,7 +5,7 @@ import { Posts } from '../classes/posts';
 import { Subject, Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
-import { MainService } from '../components/main/main.service';
+import { MainService } from './main.service';
 
 
 @Injectable()

@@ -4,7 +4,7 @@ import { Posts } from '../../../classes/posts';
 import { PostsService } from '../../../services/posts.service';
 
 import { Subscription } from 'rxjs';
-import { MainService } from '../main.service';
+import { MainService } from '../../../services/main.service';
 
 
 @Component({

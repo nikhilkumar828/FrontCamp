@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 import { Router } from '@angular/router';
-import { MainService } from '../../main.service';
+import { MainService } from '../../../../services/main.service';
 import { ClassGetter } from '@angular/compiler/src/output/output_ast';
 
 @Component({
