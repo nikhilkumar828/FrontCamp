@@ -25,11 +25,12 @@ export class PostDetailsComponent implements OnInit {
   setData(id: number) {
   this.id = id;
   this.data = this.mainService.getPostByID(id);
+  console.log(this.data);
   }
 
   onSubmitComment(comment: string) {
     console.log('Writing....');
     this.mainService.writeComments(comment, this.id);
-    console.log(this.data.comments);
+    this.setData(this.id);
   }
 }

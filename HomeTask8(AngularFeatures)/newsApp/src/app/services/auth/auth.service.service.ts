@@ -4,13 +4,17 @@ import { auth } from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { User } from 'firebase';
 import { PostsService } from '../posts.service';
+import { Store } from '@ngrx/store';
+import * as InterfacePost from '../../store/posts.reducer';
+import * as postActions from '../../store/posts.action';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   user: User;
-  constructor(public  afAuth: AngularFireAuth, public  router: Router , private postsService: PostsService ) {
+  // tslint:disable-next-line: max-line-length
+  constructor(public  afAuth: AngularFireAuth, public  router: Router , private postsService: PostsService , private store: Store<{posts: InterfacePost.State}> ) {
     this.afAuth.authState.subscribe(user => {
       if (user) {
         this.user = user;
@@ -27,6 +31,7 @@ export class AuthService {
     try {
         await  this.afAuth.auth.signInWithEmailAndPassword(email, password);
         this.router.navigate(['body', 'cnn']);
+        this.store.dispatch(new postActions.FetchPosts('cnn'));
         this.postsService.setUserName(email);
     } catch (e) {
         alert('Error!' +  e.message);

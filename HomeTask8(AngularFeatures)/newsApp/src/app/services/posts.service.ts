@@ -26,27 +26,26 @@ export class PostsService {
     return this.subject.asObservable();
   }
 
-  fetchCall(source: string) {
-    // tslint:disable-next-line: max-line-length
-    let i = 0;
-    return this.http.get<Posts[]>(`https://newsapi.org/v1/articles?source=${source}&apiKey=b75366c0a439417d8c44c1b288139ecb`)
-    .pipe(
-      map(data => {
-        // tslint:disable-next-line: no-string-literal no-shadowed-variable
-        return data['articles'].map(data => {
-          return {
-            ...data,
-            id : i++,
-            comments : []
-          };
-        });
-      })
-    )
-    .subscribe(postData => {
-      // console.log(postData);
-      this.mainService.setPosts(postData);
-    });
-  }
+  // fetchCall(source: string) {
+  //   // tslint:disable-next-line: max-line-length
+  //   let i = 0;
+  //   return this.http.get<Posts[]>(`https://newsapi.org/v1/articles?source=${source}&apiKey=b75366c0a439417d8c44c1b288139ecb`)
+  //   .pipe(
+  //     map(data => {
+  //       // tslint:disable-next-line: no-string-literal no-shadowed-variable
+  //       return data['articles'].map(data => {
+  //         return {
+  //           ...data,
+  //           id : i++,
+  //           comments : []
+  //         };
+  //       });
+  //     })
+  //   )
+  //   .subscribe(postData => {
+  //     this.mainService.setPosts(postData);
+  //   });
+  // }
 
   // // tslint:disable-next-line: ban-types
   // setPostData(posts: Object) {

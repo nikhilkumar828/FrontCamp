@@ -26,6 +26,11 @@ import { PlaceholderDirective } from './components/shared/placeholder/placeholde
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { StoreModule } from '@ngrx/store';
+import { postReducer } from './store/posts.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { PostEffects } from './store/posts.effects';
+import { DynamicFormModule } from './components/dynamic-form/dynamic-form.module';
 
 
   // Your web app's Firebase configuration
@@ -53,12 +58,15 @@ const firebaseConfig = {
     FormsModule,
     BrowserModule,
     AppRoutingModule,
+    StoreModule.forRoot({postList : postReducer}),
+    EffectsModule.forRoot([PostEffects]),
     ReactiveFormsModule,
     HttpClientModule,
     UserModule,
     AdminModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    DynamicFormModule
   ],
   providers: [PostsService],
   bootstrap: [AppComponent],
