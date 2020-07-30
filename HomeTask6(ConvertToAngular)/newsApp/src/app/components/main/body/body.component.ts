@@ -3,7 +3,6 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Posts } from '../../../classes/posts';
 import { PostsService } from '../../../services/posts.service';
 
-import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { MainService } from '../main.service';
 
@@ -20,7 +19,7 @@ export class BodyComponent implements OnInit {
   selectedSource: string;
   subscription: Subscription;
 
-  constructor(private route: ActivatedRoute, private postsService: PostsService, private mainService: MainService ) { }
+  constructor(private postsService: PostsService, private mainService: MainService ) { }
 
   ngOnInit() {
     this.subscription = this.mainService.postsChanged
@@ -29,7 +28,7 @@ export class BodyComponent implements OnInit {
           this.allPosts = posts;
         }
       );
-    this.allPosts = this.mainService.getPosts();
+    // this.allPosts = this.mainService.getPosts();
     // this.setPostsData('cnn');
   }
 
